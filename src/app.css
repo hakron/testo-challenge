@@ -1,0 +1,103 @@
+:root {
+  --color: #f79722;
+  --svg: url("./robot.svg") no-repeat left top;
+  --transformStyle: preserve-3d;
+  --linearGradient: linear-gradient(
+    45deg,
+    var(--color) 25%,
+    transparent 25%,
+    transparent 75%,
+    var(--color) 75%,
+    var(--color) 100%
+  );
+}
+.controls {
+  width: 25%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.input__container {
+  margin: 0 auto;
+}
+.placement__button__container {
+  display: flex;
+  justify-content: space-between;
+  width: 280px;
+  margin: 0 auto;
+}
+#robot {
+  width: 20%;
+  height: 20%;
+  border-radius: 100%;
+  position: absolute;
+}
+
+.container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  left: 50%;
+  transform: translate(-250px, 0);
+}
+
+.console {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  background-image: var(--linearGradient), var(--linearGradient);
+  background-size: 200px 200px;
+  background-position: 0 0, 100px 100px;
+  border: 1px solid var(--color);
+  transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
+  transform-style: var(--transformStyle);
+}
+
+.button__container {
+  margin: 20px;
+}
+.button {
+  height: 50px;
+  width: 50px;
+  font-size: 35px;
+  margin: 0 10px;
+}
+
+.north {
+  background: var(--svg);
+}
+.south {
+  background: var(--svg);
+  transform: rotateX(180deg) translate3d(5px, -5px, -1px);
+  transform-style: var(--transformStyle);
+}
+.west {
+  background: var(--svg);
+  transform: rotateZ(270deg) translate3d(-25px, -25px, 20px);
+  transform-style: var(--transformStyle);
+}
+.east {
+  background: var(--svg);
+  transform: rotateZ(90deg) translate3d(20px, 20px, 20px);
+  transform-style: var(--transformStyle);
+}
+
+.out__of__board {
+  animation: pulse 1.5s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #ff0000;
+  }
+  100% {
+    background-color: #ff4136;
+  }
+}
